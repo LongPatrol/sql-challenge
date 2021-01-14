@@ -1,3 +1,5 @@
+--Creating Tables
+
 CREATE TABLE titles (
 	title_id VARCHAR(255) PRIMARY KEY NOT NULL
 	, title VARCHAR(255)
@@ -38,9 +40,37 @@ CREATE TABLE dept_emp(
 ;
 
 CREATE TABLE dept_manager(
-	emp_no INTEGER PRIMARY KEY NOT NULL
-	, dept_no VARCHAR(255) NOT NULL
+	dept_no VARCHAR(255) NOT NULL
+	, emp_no INTEGER PRIMARY KEY NOT NULL
 	, FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
 	, FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
 	)
 ;
+
+--checking table imports
+select * from titles
+limit 5
+;
+
+select * from salaries
+limit 5
+;
+
+select * from employees
+limit 5
+;
+
+select * from departments
+limit 5
+;
+
+select * from dept_emp
+limit 5
+;
+
+select * from dept_manager
+limit 5
+; 
+
+
+
