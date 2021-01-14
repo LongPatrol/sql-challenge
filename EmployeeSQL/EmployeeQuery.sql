@@ -7,7 +7,7 @@ CREATE TABLE titles (
 ;
 
 CREATE TABLE salaries(
-	emp_no VARCHAR(255) PRIMARY KEY NOT NULL 
+	emp_no INTEGER PRIMARY KEY NOT NULL 
 	, salary INTEGER
 	)
 ;
@@ -71,6 +71,23 @@ limit 5
 select * from dept_manager
 limit 5
 ; 
+
+--First question: List employee number, last name, first name, sex and salary for each employee
+select emp.emp_no
+	, emp.last_name
+	, emp.first_name
+	, emp.sex
+	, s.salary
+from employees emp
+	left join salaries s
+	on emp.emp_no = s.emp_no
+;
+
+--Second question: List first name, last name, and hire date for employees that were hired in 1986
+select first_name, last_name, hire_date
+from employees emp
+WHERE EXTRACT(YEAR FROM hire_date) = '1986'
+;
 
 
 
