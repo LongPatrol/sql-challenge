@@ -101,5 +101,11 @@ from dept_manager dm
 
 --4th question: List the department of each employee with: employee number, last name, first name,
 --and department name
-
+select emp.emp_no, emp.last_name, emp.first_name, dpts.dept_name
+from employees emp
+	left join dept_emp de
+	on emp.emp_no = de.emp_no
+	left join departments dpts
+	on de.dept_no = dpts.dept_no
+;
 
