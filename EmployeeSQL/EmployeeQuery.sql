@@ -109,3 +109,31 @@ from employees emp
 	on de.dept_no = dpts.dept_no
 ;
 
+--5th question: list first name, last name and sex for employees with the first name Hercules
+-- and the last name beginning with B
+select first_name, last_name, sex
+from employees
+where first_name = 'Hercules' and last_name LIKE 'B%'
+;
+
+--6th question: list all employees in the sales department, including their employee number
+-- last name, first name, and department name
+select emp.emp_no, emp.last_name, emp.first_name, dpts.dept_name
+from departments dpts
+	left join dept_emp de
+	on dpts.dept_no = de.dept_no
+	left join employees emp
+	on de.emp_no = emp.emp_no
+where dpts.dept_name = 'Sales'
+;
+
+--7th question: list all employees in the sales AND development departments
+--, including their employee number, last name, first name, and department name
+select emp.emp_no, emp.last_name, emp.first_name, dpts.dept_name
+from departments dpts
+	left join dept_emp de
+	on dpts.dept_no = de.dept_no
+	left join employees emp
+	on de.emp_no = emp.emp_no
+where dpts.dept_name in ('Sales', 'Development')
+;
