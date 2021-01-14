@@ -89,5 +89,17 @@ from employees emp
 WHERE EXTRACT(YEAR FROM hire_date) = '1986'
 ;
 
+--Third question: List manager of each department with the department number, department name,
+-- manager's employee number, last name, and first name
+select dm.dept_no, dpts.dept_name, dm.emp_no, emp.last_name, emp.first_name
+from dept_manager dm
+	left join departments dpts
+	on dm.dept_no = dpts.dept_no
+	left join employees emp
+	on dm.emp_no = emp.emp_no
+;
+
+--4th question: List the department of each employee with: employee number, last name, first name,
+--and department name
 
 
