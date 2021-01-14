@@ -137,3 +137,12 @@ from departments dpts
 	on de.emp_no = emp.emp_no
 where dpts.dept_name in ('Sales', 'Development')
 ;
+
+--8th question: In desc order, list the frequency count of employee last names
+select last_name, count(*) as frequency_count
+from employees
+group by last_name
+order by frequency_count desc
+;
+
+
